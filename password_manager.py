@@ -2,7 +2,6 @@ from tkinter import *
 from tkinter import messagebox
 import random
 import base64
-# import pyperclip
 
 FONT_NAME = "Calibri"
 GREEN = "#008170"
@@ -36,20 +35,15 @@ def generate_pass():
 
     password = "".join(password_list)
     input_password.insert(0, password)
-    # copy the pass to clipboard
-    # pyperclip.copy(password)
-
 
 # ---------------------------- ENCODE/DECODE FUNCTIONS ------------------------------- #
 def encode_password(password):
-    """Encode the password using base64"""
     # convert string to bytes, encode with base64, then convert back to string
     encoded_bytes = base64.b64encode(password.encode('utf-8'))
     return encoded_bytes.decode('utf-8')
 
 
 def decode_password(encoded_password):
-    """Decode the base64 encoded password"""
     # convert string to bytes, decode with base64, then convert back to string
     decoded_bytes = base64.b64decode(encoded_password.encode('utf-8'))
     return decoded_bytes.decode('utf-8')
@@ -97,7 +91,7 @@ def save():
         website_exists = False
         modified_lines = []
 
-        # Check if website exists and update if needed
+        # check if website exists and update if needed
         for line in lines:
             parts = line.strip().split(" | ")
             if len(parts) == 3: 
